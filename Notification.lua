@@ -33,10 +33,14 @@ function Notify(data)
     newNotification.Title.Text = data.Title or "Example Text"
     newNotification.Description.Text = data.Content or "Example Content. Example Content."
 
-    if newNotification:FindFirstChild("Image") then
-        newNotification.Image.Image = "rbxassetid://77891951053543"
-    else
-        warn("image not found")
+    if data.Image then
+        local icon = newNotification:FindFirstChild("Icon")
+        if icon then
+
+            icon.Image = "rbxassetid://" .. tostring(data.Image)
+        else
+            warn("Icon not found in notification template")
+        end
     end
 
     newNotification.Visible = true
@@ -82,3 +86,4 @@ function Notify(data)
     newNotification.Visible = false
     newNotification:Destroy()
 end
+
