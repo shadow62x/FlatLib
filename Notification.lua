@@ -39,7 +39,7 @@ function Notify(data)
 
             icon.Image = "rbxassetid://" .. tostring(data.Image)
         else
-            warn("Icon not found in notification template")
+            warn("image not found")
         end
     end
 
