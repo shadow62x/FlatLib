@@ -67,8 +67,8 @@ function Notify(data)
     TweenService:Create(newNotification.UIStroke, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {Transparency = 0.95}):Play()
     TweenService:Create(newNotification.Shadow, TweenInfo.new(0.3, Enum.EasingStyle.Exponential), {ImageTransparency = 0.82}):Play()
 
-    local waitDuration = math.min(math.max((#newNotification.Description.Text * 0.1) + 2.5, 3), 10)
-    task.wait(data.Duration or waitDuration)
+    local duration = math.min(math.max((#newNotification.Description.Text * 0.1) + 2.5, 3), 10)
+    task.wait(data.Duration or duration)
 
     newNotification.Icon.Visible = false
     TweenService:Create(newNotification, TweenInfo.new(0.4, Enum.EasingStyle.Exponential), {BackgroundTransparency = 1}):Play()
